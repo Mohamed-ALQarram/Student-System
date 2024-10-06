@@ -1,0 +1,59 @@
+﻿
+@model IEnumerable<Student>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="text-center text-primary mb-4">Students List</h2>
+
+    <table class="table table-striped table-hover table-bordered shadow-lg">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Student ID</th>
+                <th scope="col">Student Name</th>
+                    <th scope="col">Student Age</th>
+                <th scope="col">Department Name</th>
+                <th scope="col" colspan="2" class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.StudentID</td>
+                    <td>@student.StudentName</td>
+                    <td>@student.StudentAge</td>
+                    <td>@student?.Department?.DeptName</td>
+                    <td class="text-center">
+                            <a asp-action="EditStudent" asp-controller="Student" asp-route-stdID="@student?.StudentID" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-edit"></i> Update
+                        </a>
+                    </td>
+
+                    <td class="text-center">
+                        <a asp-action="RemoveStudent" asp-controller="Student" asp-route-studentID="@student?.StudentID" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end">
+        <a asp-action="CreateStudent" asp-controller="Student" class="btn btn-info shadow-sm">
+            <i class="fas fa-plus-circle"></i> Add Student
+        </a>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+ </body>
+ </html>
+

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<StudentSystem.Models.Department>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center text-primary mb-4">Departments</h2>
+
+        <table class="table table-striped table-hover table-bordered shadow-lg">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Department ID</th>
+                    <th scope="col">Department Name</th>
+                    <th scope="col" colspan="3" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var department in Model)
+                {
+                    <tr>
+                        <td>@department.DepartmentID</td>
+                        <td>@department.DeptName</td>
+                        <td class="text-center">
+                            <a asp-action="StudentShow" asp-controller="Department" asp-route-DeptID="@department.DepartmentID" class="btn btn-info btn-sm">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="EditDepartment" asp-controller="Department" asp-route-DeptID="@department.DepartmentID" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-edit"></i> Update
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="RemoveDepartment" asp-controller="Department" asp-route-DeptID="@department.DepartmentID" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-end">
+            <a asp-action="CreateDepartment" asp-controller="Department" class="btn btn-info shadow-sm">
+                <i class="fas fa-plus-circle"></i> Create Department
+            </a>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap and FontAwesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

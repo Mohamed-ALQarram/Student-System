@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Create Student";
+    SelectList Depts = new SelectList(ViewBag.Depts, "DepartmentID", "DeptName");
+}
+@model Student
+
+<div class="container mt-4">
+    <h1 class="text-center text-primary mb-4">Create Student</h1>
+
+    <form asp-action="AddStudent" method="post" class="p-4 shadow-sm rounded bg-light">
+        <div class="form-group mb-3">
+            <label for="StudentName" class="form-label">Student Name</label>
+            <input asp-for="StudentName" id="StudentName" class="form-control" placeholder="Enter student's name" />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="StudentAge" class="form-label">Student Age</label>
+            <input asp-for="StudentAge" id="StudentAge" class="form-control" placeholder="Enter student's age" />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="DepartmentID" class="form-label">Select Department</label>
+            <select asp-for="DepartmentID" asp-items="Depts" class="form-select">
+                <option value="">-- Select Department --</option>
+            </select>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <input type="submit" value="Create" class="btn btn-success w-50 shadow-sm" />
+        </div>
+    </form>
+</div>

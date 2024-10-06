@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "StudentShow";
+    var result = Model.Students;
+}
+@model Department
+
+@if(result.Count() > 0)
+{
+    <h3>Students of @Model.DeptName department</h3>
+    <br />
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach(var Student in result)
+                {
+            <tr>
+                    <td>@Student.StudentID</td>
+                    <td>@Student.StudentName</td>
+            </tr>
+                }   
+        </tbody>
+    </table>
+}
+else
+{
+    <h1 class="align-content-center">Department Is Empty</h1>
+}
+
+<a asp-action="DepartmentShow" asp-controller="Department"> <span class="btn btn-info">Back</span> </a>
