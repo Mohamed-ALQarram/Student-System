@@ -37,7 +37,7 @@
                             </a>
                         </td>
                         <td class="text-center">
-                            <a asp-action="RemoveDepartment" asp-controller="Department" asp-route-DeptID="@department.DepartmentID" class="btn btn-danger btn-sm">
+                            <a asp-action="RemoveDepartment" asp-controller="Department" asp-route-DeptID="@department.DepartmentID" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">
                                 <i class="fas fa-trash-alt"></i> Delete
                             </a>
                         </td>

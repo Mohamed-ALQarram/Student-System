@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<Student>
+﻿@model IEnumerable<Student>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +30,13 @@
                     <td>@student.StudentAge</td>
                     <td>@student?.Department?.DeptName</td>
                     <td class="text-center">
-                            <a asp-action="EditStudent" asp-controller="Student" asp-route-stdID="@student?.StudentID" class="btn btn-outline-primary btn-sm">
+                            <a asp-action="EditStudent" asp-controller="Student" asp-route-StudentID="@student.StudentID" class="btn btn-outline-primary btn-sm">
                             <i class="fas fa-edit"></i> Update
                         </a>
                     </td>
 
                     <td class="text-center">
-                        <a asp-action="RemoveStudent" asp-controller="Student" asp-route-studentID="@student?.StudentID" class="btn btn-danger btn-sm">
+                            <a asp-action="RemoveStudent" asp-controller="Student" asp-route-StudentID="@student.StudentID" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">
                             <i class="fas fa-trash-alt"></i> Delete
                         </a>
                     </td>

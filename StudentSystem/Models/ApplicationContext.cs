@@ -5,6 +5,8 @@ namespace StudentSystem.Models
 {
     public class ApplicationContext:DbContext
     {
+        public ApplicationContext() : base() { }
+        public ApplicationContext(DbContextOptions options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Server=localhost;Database=StudentsDb;" +
             "Trusted_Connection=True;" +

@@ -5,7 +5,7 @@
 }
 @model Department
 
-@if(result.Count() > 0)
+@if(result?.Count() > 0)
 {
     <h3>Students of @Model.DeptName department</h3>
     <br />
